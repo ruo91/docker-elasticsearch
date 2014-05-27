@@ -30,7 +30,7 @@ RUN cd $SRC_DIR && curl -LO "http://www.us.apache.org/dist/maven/maven-3/$MVN_VE
 
 # Elasticsearch
 RUN cd $SRC_DIR && git clone https://github.com/elasticsearch/elasticsearch elasticsearch-source \
- && cd elasticsearch-source && git checkout -b 1.x origin/1.x && mvn clean package -DskipTests \
+ && cd elasticsearch-source && git checkout -b 1.x && mvn clean package -DskipTests \
  && mv target/releases/elasticsearch*.tar.gz $SRC_DIR && cd $SRC_DIR && rm -rf elasticsearch-source \
  && tar xzf elasticsearch*.tar.gz && rm -f elasticsearch*.tar.gz && mv elasticsearch*  elasticsearch \
  && $SRC_DIR/elasticsearch/bin/plugin -install mobz/elasticsearch-head \
