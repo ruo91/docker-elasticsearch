@@ -36,7 +36,7 @@ RUN curl -L -o jdk.tar.gz "$JDK_URL/$JDK_VER_1/jdk-$JDK_VER_2-linux-x64.tar.gz" 
 # 6. Set the environment variable for Oracle JDK
 RUN echo '# JDK' >> /etc/profile \
  && echo "export JAVA_HOME=$JAVA_HOME" >> /etc/profile \
- && echo 'export PATH=\$PATH:\$JAVA_HOME/bin' >> /etc/profile \
+ && echo 'export PATH=$PATH:$JAVA_HOME/bin' >> /etc/profile \
  && echo '' >> /etc/profile \
 
 # 7. Set the Apache Maven
@@ -51,8 +51,8 @@ RUN curl -LO "$MVN_URL/$MVN_VER/binaries/apache-maven-$MVN_VER-bin.tar.gz" \
 # 8. Set the environment variable for Apache Maven
 RUN echo '# Maven' >> /etc/profile \
  && echo "M2_HOME=$SRC_DIR/apache-maven-$MVN_VER" >> /etc/profile \
- && echo 'export M2=\$M2_HOME/bin' >> /etc/profile \
- && echo 'export PATH=\$PATH:\$M2' >> /etc/profile \
+ && echo 'export M2=$M2_HOME/bin' >> /etc/profile \
+ && echo 'export PATH=$PATH:$M2' >> /etc/profile \
  && echo '' >> /etc/profile
 
 # 9. The source build for elasticsearch
@@ -77,7 +77,7 @@ ADD conf/elasticsearch.yml		$ES_HOME/conf/elasticsearch.yml
 RUN echo '' >> /etc/profile \
  && echo '# Elasticsearch' >> /etc/profile \
  && echo "export ES_HOME=$ES_HOME" >> /etc/profile \
- && echo 'export PATH=\$PATH:\$ES_HOME/bin' >> /etc/profile \
+ && echo 'export PATH=$PATH:$ES_HOME/bin' >> /etc/profile \
  && echo '' >> /etc/profile
 
 # 13. Port
