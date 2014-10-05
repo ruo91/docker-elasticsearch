@@ -2,8 +2,8 @@
 # Dockerfile - Elasticsearch
 #
 # - Build
-# git clone https://github.com/ruo91/dockerfile /opt/dockerfile
-# docker build --rm -t elasticsearch:source /opt/dockerfile/elasticsearch
+# git clone https://github.com/ruo91/docker-elasticsearch /opt/docker-elasticsearch
+# docker build --rm -t elasticsearch:source /opt/docker-elasticsearch
 #
 # - Run
 # docker run -d  --name="elasticsearch" -h "elasticsearch" -p 9200:9200 -p 9300:9300 elasticsearch:source
